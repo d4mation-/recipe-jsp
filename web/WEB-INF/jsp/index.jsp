@@ -79,5 +79,5 @@
                 </div> <!-- End Offset -->
             </div>
         </div>
-                        
-    </body>
+                                    
+<c:import url = "/assets/footer.jsp" />
