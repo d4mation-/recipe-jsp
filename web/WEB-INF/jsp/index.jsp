@@ -16,7 +16,7 @@
                         <div class = "row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for = "ingredient_number">Number of Ingredients</label>
-                                <input class = "form-control" type = "number" value = "${recipe.ingredientNumber}" min = 1 /> <br />
+                                <input class = "form-control numbers-only" type = "number" value = "${recipe.ingredientNumber}" min = 1 /> <br />
                             </div>
                         </div>
 
