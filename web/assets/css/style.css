@@ -1,0 +1,9 @@
+.unit.radio{
+    display: inline;
+    margin-right: 1em;
+    margin-top: 1em;
+}
+
+.unit-label{
+    margin-bottom: 0.8em;
+}
