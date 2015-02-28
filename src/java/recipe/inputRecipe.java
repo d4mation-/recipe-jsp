@@ -75,11 +75,22 @@ public class inputRecipe extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            response.setContentType("text/html");
+
+            response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
             try{
-                out.println("<h1>HTML from servlet</h1>");
+                /* TODO output your page here. You may use following sample code. */
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<link href = \"<c:url value = \"/assets/bootstrap-3.3.2/css/bootstrap.min.css\" />\" rel = \"stylesheet\" />\n" +
+"        <link href = \"<c:url value = \"/assets/css/style.css\" />\" rel = \"stylesheet\" />");
+                out.println("<title>Servlet inputRecipe</title>");            
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Servlet inputRecipe at " + request.getContextPath() + "</h1>");
+                out.println("</body>");
+                out.println("</html>");
             }
             finally {
                 out.close();
