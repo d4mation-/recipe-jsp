@@ -82,18 +82,56 @@ public class inputRecipe extends HttpServlet {
             try{
                 request.getRequestDispatcher("/assets/header.jsp").include(request, response);
                 
-                int ingredientCount = Integer.parseInt( request.getParameter("ingredient_number") );
-                ingredientCount = ingredientCount - 1; // Everything is indexed at 0;
+                out.println("<div class = \"row\">");
+                    out.println("<div class = \"container-fluid\">");
+                        out.println("<div class = \"col-lg-8 col-md-8 col-sm-10 col-xs-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1 col-xs-offset-1\">");
                 
-                String ingredientSize = "";
-                String ingredientUnit = "";
-                
-                for(int index = 0; index <= ingredientCount; index++){
-                    ingredientSize = request.getParameter("ingredient_size[" + index + "]");
-                    ingredientUnit = request.getParameter("ingredient_unit[" + index + "]");
-                    out.println(ingredientSize);
-                    out.println(ingredientUnit);
-                }
+                            int ingredientCount = Integer.parseInt( request.getParameter("ingredient_number") );
+                            ingredientCount = ingredientCount - 1; // Everything is indexed at 0;
+
+                            String recipeName = request.getParameter("recipe_name");
+                            String recipeAuthor = request.getParameter("recipe_author");
+                            String ingredientName;
+                            String ingredientSize;
+                            String ingredientUnit;
+                            String recipeInstructions = request.getParameter("recipe_instructions");
+
+                            out.println("<div class = \"list-group\">");
+                            
+                                out.println("<div class = \"list-group-item active col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
+                                    out.println("<div class = \"col-lg-7 col-md-7 col-sm-12 col-xs-12\">" + recipeName + "</div>");
+                                    out.println("<div class = \"col-lg-5 col-md-5 col-sm-12 col-xs-12 text-right\">By: " + recipeAuthor + "</div>");
+                                out.println("</div>");
+
+                                for(int index = 0; index <= ingredientCount; index++){
+                                    ingredientName = request.getParameter("ingredient_name[" + index + "]");
+                                    ingredientSize = request.getParameter("ingredient_size[" + index + "]");
+                                    ingredientUnit = request.getParameter("ingredient_unit[" + index + "]");
+                                    if (ingredientSize == "0.10"){
+                                        ingredientSize = "Pinch";
+                                    }
+                                    if (ingredientUnit == null){
+                                        ingredientUnit = ""; // When something is a Pinch, it makes no sense to specify it as a Pinch Gallon
+                                    }
+                                    out.println("<div class = \"list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
+                                        out.println("<div class = \"col-lg-6 col-md-6 col-sm-12 col-xs-12\">" + ingredientName + "</div>");
+                                        out.println("<div class = \"col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right\">" + ingredientSize + " " + ingredientUnit + "</div>");
+                                    out.println("</div>");
+                                }
+                                
+                                if (recipeInstructions != null && !recipeInstructions.equals("")){ 
+                                    
+                                    out.println("<div class = \"list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
+                                        out.println("<div class = \"col-lg-12 col-md-12 col-sm-12 col-xs-12\">" + recipeInstructions + "</div>");
+                                    out.println("</div>");
+                                    
+                                }
+                                
+                            out.println("</div>");
+                        
+                        out.println("</div>");
+                    out.println("</div>");
+                out.println("</div>");
                 
                 request.getRequestDispatcher("/assets/footer.jsp").include(request, response);
             }

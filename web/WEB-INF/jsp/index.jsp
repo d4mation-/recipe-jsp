@@ -12,23 +12,43 @@
                     </div>
 
                     <form action = "input-recipe" method = "post">
+                        
+                        <div class = "row">
+                            <div class = "col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                <label for = "recipe_name">Recipe Name</label>
+                                <input required class = "form-control" name = "recipe_name" />
+                            </div>
+                            <div class = "col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <label for = "recipe_author">Creator</label>
+                                <input required class = "form-control" name = "recipe_author" />
+                            </div>
+                        </div>
+                        <br />
 
                         <div class = "row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for = "ingredient_number">Number of Ingredients</label>
-                                <input class = "form-control numbers-only" id = "number_of_ingredients" name = "ingredient_number" type = "number" value = "${recipe.ingredientNumber}" min = 1 /> <br />
+                                <input required class = "form-control numbers-only" id = "number_of_ingredients" name = "ingredient_number" type = "number" value = "${recipe.ingredientNumber}" min = 1 /> <br />
                             </div>
                         </div>
 
                         <div class = "ingredient-repeater">
                             <div class = "ingredient-template">
                                 <div class = "row">
+                                    
                                     <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        
+                                        <label for = "ingredient_name">Name of Ingredient</label>
+                                        <input required class = "form-control ingredient-name" name = "ingredient_name" />
+                                        
+                                    </div>
+                                    
+                                    <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12">
 
                                         <label for = "ingredient_size">Size of Ingredient</label>
-                                        <select class = "form-control" name = "ingredient_size" value = "${recipe.ingredientSize}">
-                                            <option value = "" selected>Select Size of Ingredient</option>
-                                            <option value = "0.10">Pinch<option>
+                                        <select required class = "form-control ingredient-size" name = "ingredient_size">
+                                            <option selected value = "">Select Size of Ingredient</option>
+                                            <option value = "0.10">Pinch</option>
                                             <option value = "0.25">1/4</option>
                                             <option value = "0.50">1/2</option>
                                             <option value = "0.75">3/4</option>
@@ -37,30 +57,30 @@
 
                                     </div>
 
-                                    <div class = "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <div class = "col-lg-3 col-md-3 col-sm-12 col-xs-12">
 
                                         <label class = "unit-label">Ingredient Unit</label><br />
                                         <div class = "unit radio">
                                             <label for = "ingredient_unit">
-                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "TSP" required />
+                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "TSP" />
                                                 TSP
                                             </label>
                                         </div>
                                         <div class = "unit radio">
                                             <label for = "ingredient_unit">
-                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "TBSP" required />
+                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "TBSP" />
                                                 TBSP
                                             </label>
                                         </div>
                                         <div class = "unit radio">
                                             <label for = "ingredient_unit">
-                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "CUP" required />
+                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "CUP" />
                                                 CUP
                                             </label>
                                         </div>
                                         <div class = "unit radio">
                                             <label for = "ingredient_unit">
-                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "GALLON" required />
+                                                <input class = "ingredient-unit" type = "radio" name = "ingredient_unit" value = "GALLON" />
                                                 GALLON
                                             </label>
                                         </div>
@@ -71,6 +91,13 @@
                                 <br />
       <!-- End Template --> </div>
                         </div> <!-- End Container -->
+                        
+                        <div class = "row">
+                            <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label for = "recipe_instructions">Recipe Instructions</label>
+                                <textarea class = "form-control" name = "recipe_instructions"></textarea>
+                            </div>
+                        </div>
 
                         <div class = "row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">

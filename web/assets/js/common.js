@@ -7,7 +7,8 @@ function repeatIngredients(ingredientTemplate, keycode) {
     
         for(var index = currentIngredients; index < ingredientsNumber; index++) {
             var template = ingredientTemplate.clone(true); // JavaScript is very picky about duplicating DOM Elements
-            template.find('select').attr('name', 'ingredient_size[' + index + ']');
+            template.find('.ingredient-name').attr('name', 'ingredient_name[' + index + ']');
+            template.find('.ingredient-size').attr('name', 'ingredient_size[' + index + ']');
             template.find('.ingredient-unit').each( function() {
                 $(this).attr('name', 'ingredient_unit[' + index + ']');
             });
@@ -20,7 +21,7 @@ function repeatIngredients(ingredientTemplate, keycode) {
         // Remove all Ingredients over what is reflected in the Input Box
         
         for(var index = currentIngredients; index >= ingredientsNumber; index--) {
-            $('select[name="ingredient_size[' + index + ']"').parent().parent().parent().remove();
+            $('.ingredient-size[' + index + ']"').parent().parent().parent().remove();
         }
         
     }
