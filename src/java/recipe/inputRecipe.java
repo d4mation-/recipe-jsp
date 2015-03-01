@@ -82,7 +82,7 @@ public class inputRecipe extends HttpServlet {
             try{
                 request.getRequestDispatcher("/assets/header.jsp").include(request, response);
                 
-                int ingredientCount = Integer.parseInt( request.getParameter("ingredient_count") );
+                int ingredientCount = Integer.parseInt( request.getParameter("ingredient_number") );
                 ingredientCount = ingredientCount - 1; // Everything is indexed at 0;
                 
                 String ingredientSize = "";

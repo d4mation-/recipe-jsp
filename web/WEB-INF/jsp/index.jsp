@@ -16,7 +16,7 @@
                         <div class = "row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for = "ingredient_number">Number of Ingredients</label>
-                                <input class = "form-control numbers-only" id = "number_of_ingredients" name =" "ingredient_number" type = "number" value = "${recipe.ingredientNumber}" min = 1 /> <br />
+                                <input class = "form-control numbers-only" id = "number_of_ingredients" name = "ingredient_number" type = "number" value = "${recipe.ingredientNumber}" min = 1 /> <br />
                             </div>
                         </div>
 
@@ -69,11 +69,8 @@
 
                                 </div> <!-- End Row -->
                                 <br />
-                            </div> <!-- End Template -->
+      <!-- End Template --> </div>
                         </div> <!-- End Container -->
-                        
-                        <input type = "hidden" value = "" id = "ingredient_count" name = "ingredient_count" />
-                        <!-- PHP can pass Multidimentional Arrays through POST. Here's a workaround for JSP, I guess. -->
 
                         <div class = "row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -25,8 +25,6 @@ function repeatIngredients(ingredientTemplate, keycode) {
         
     }
     
-    $('#ingredient_count').val(currentIngredients);
-    
 }
 
 $(document).ready( function() {
