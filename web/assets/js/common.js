@@ -25,7 +25,7 @@ function repeatIngredients(ingredientTemplate, keycode) {
         
     }
     
-    
+    $('#ingredient_count').val(currentIngredients);
     
 }
 
@@ -60,35 +60,6 @@ $(document).ready( function() {
     
     $(document).on('keyup', '#number_of_ingredients', function(event) {
        repeatIngredients(ingredientTemplate, event.which); 
-    });
-    
-    $( "form" ).submit(function( event ) {
-        event.preventDefault();
-        
-        var fields = $('select').serializeArray();
-        
-        var ingredientSizes = new Array();
-        var ingredientUnits = new Array();
-        
-        for(i = 0; i < fields.length; i++){
-            ingredientSizes.push(fields[i].value);
-        }
-        
-        fields = new Array();
-        fields = $('.ingredient-unit').serializeArray();
-        
-        for(i = 0; i < fields.length; i++){
-            ingredientUnits.push(fields[i].value);
-        }
-        
-        $.post("input-recipe", {
-                ingredientSize: ingredientSizes,
-                ingredientUnit: ingredientUnits,
-                mode: "Insert"
-            }, function(data) {
-                alert("Data Loaded: " + data);
-            }
-        );
     });
     
 });

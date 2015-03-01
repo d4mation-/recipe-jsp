@@ -81,9 +81,19 @@ public class inputRecipe extends HttpServlet {
             PrintWriter out = response.getWriter();
             try{
                 request.getRequestDispatcher("/assets/header.jsp").include(request, response);
-
-                String ingredientSize[] = request.getParameterValues("ingredientSize[]");
-                out.println(Arrays.toString(ingredientSize));
+                
+                int ingredientCount = Integer.parseInt( request.getParameter("ingredient_count") );
+                ingredientCount = ingredientCount - 1; // Everything is indexed at 0;
+                
+                String ingredientSize = "";
+                String ingredientUnit = "";
+                
+                for(int index = 0; index <= ingredientCount; index++){
+                    ingredientSize = request.getParameter("ingredient_size[" + index + "]");
+                    ingredientUnit = request.getParameter("ingredient_unit[" + index + "]");
+                    out.println(ingredientSize);
+                    out.println(ingredientUnit);
+                }
                 
                 request.getRequestDispatcher("/assets/footer.jsp").include(request, response);
             }

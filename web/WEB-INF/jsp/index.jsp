@@ -71,6 +71,9 @@
                                 <br />
                             </div> <!-- End Template -->
                         </div> <!-- End Container -->
+                        
+                        <input type = "hidden" value = "" id = "ingredient_count" name = "ingredient_count" />
+                        <!-- PHP can pass Multidimentional Arrays through POST. Here's a workaround for JSP, I guess. -->
 
                         <div class = "row">
                             <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
