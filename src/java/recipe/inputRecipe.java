@@ -8,6 +8,7 @@ package recipe;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -80,8 +81,9 @@ public class inputRecipe extends HttpServlet {
             PrintWriter out = response.getWriter();
             try{
                 request.getRequestDispatcher("/assets/header.jsp").include(request, response);
-                
-                out.println("<h1>Servlet inputRecipe at " + request.getContextPath() + "</h1>");
+
+                String ingredientSize[] = request.getParameterValues("ingredientSize[]");
+                out.println(Arrays.toString(ingredientSize));
                 
                 request.getRequestDispatcher("/assets/footer.jsp").include(request, response);
             }
