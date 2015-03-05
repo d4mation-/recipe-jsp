@@ -44,7 +44,7 @@ $(document).ready( function() {
             }
         }
         
-        if(input.val() === ''){
+        if(input.val() === '' || input.val() === 0){
             input.val(1);
         }
         
