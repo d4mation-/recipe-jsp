@@ -107,7 +107,8 @@ public class inputRecipe extends HttpServlet {
                                     ingredientName = request.getParameter("ingredient_name[" + index + "]");
                                     ingredientSize = request.getParameter("ingredient_size[" + index + "]");
                                     ingredientUnit = request.getParameter("ingredient_unit[" + index + "]");
-                                    if (ingredientSize == "0.10"){
+                                    System.out.println(ingredientName);
+                                    if (Double.parseDouble(ingredientSize) == 0.10){
                                         ingredientSize = "Pinch";
                                     }
                                     if (ingredientUnit == null){
@@ -122,7 +123,7 @@ public class inputRecipe extends HttpServlet {
                                 if (recipeInstructions != null && !recipeInstructions.equals("")){ 
                                     
                                     out.println("<div class = \"list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
-                                        out.println("<div class = \"col-lg-12 col-md-12 col-sm-12 col-xs-12\">" + recipeInstructions + "</div>");
+                                        out.println("<div class = \"col-lg-12 col-md-12 col-sm-12 col-xs-12\">Instructions: " + recipeInstructions + "</div>");
                                     out.println("</div>");
                                     
                                 }
