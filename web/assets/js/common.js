@@ -21,7 +21,7 @@ function repeatIngredients(ingredientTemplate, keycode) {
         // Remove all Ingredients over what is reflected in the Input Box
         
         for(var index = currentIngredients; index >= ingredientsNumber; index--) {
-            $('.ingredient-size[' + index + ']"').parent().parent().parent().remove();
+            $('.ingredient-size[name="ingredient_size[' + index + ']"]').parent().parent().parent().remove();
         }
         
     }
