@@ -95,35 +95,40 @@ public class inputRecipe extends HttpServlet {
                             String ingredientSize;
                             String ingredientUnit;
                             String recipeInstructions = request.getParameter("recipe_instructions");
+                            
+                            recipe newRecipe = new recipe(recipeName, recipeAuthor, recipeInstructions);
+                            ingredient newIngredient;
 
                             out.println("<div class = \"list-group\">");
                             
                                 out.println("<div class = \"list-group-item active col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
-                                    out.println("<div class = \"col-lg-7 col-md-7 col-sm-12 col-xs-12\">" + recipeName + "</div>");
-                                    out.println("<div class = \"col-lg-5 col-md-5 col-sm-12 col-xs-12 text-right\">By: " + recipeAuthor + "</div>");
+                                    out.println("<div class = \"col-lg-7 col-md-7 col-sm-12 col-xs-12\">" + newRecipe.getRecipeName() + "</div>");
+                                    out.println("<div class = \"col-lg-5 col-md-5 col-sm-12 col-xs-12 text-right\">By: " + newRecipe.getRecipeAuthor() + "</div>");
                                 out.println("</div>");
 
                                 for(int index = 0; index <= ingredientCount; index++){
                                     ingredientName = request.getParameter("ingredient_name[" + index + "]");
                                     ingredientSize = request.getParameter("ingredient_size[" + index + "]");
                                     ingredientUnit = request.getParameter("ingredient_unit[" + index + "]");
-                                    System.out.println(ingredientName);
-                                    if (Double.parseDouble(ingredientSize) == 0.10){
-                                        ingredientSize = "Pinch";
+                                    
+                                    newIngredient = new ingredient(ingredientName, ingredientSize, ingredientUnit);
+                                    
+                                    if (Double.parseDouble(newIngredient.getIngredientSize()) == 0.10){
+                                        newIngredient.setIngredientSize("Pinch");
                                     }
-                                    if (ingredientUnit == null){
-                                        ingredientUnit = ""; // When something is a Pinch, it makes no sense to specify it as a Pinch Gallon
+                                    if (newIngredient.getIngredientUnit() == null){
+                                        newIngredient.setIngredientUnit(""); // When something is a Pinch, it makes no sense to specify it as a Pinch Gallon
                                     }
                                     out.println("<div class = \"list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
-                                        out.println("<div class = \"col-lg-6 col-md-6 col-sm-12 col-xs-12\">" + ingredientName + "</div>");
-                                        out.println("<div class = \"col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right\">" + ingredientSize + " " + ingredientUnit + "</div>");
+                                        out.println("<div class = \"col-lg-6 col-md-6 col-sm-12 col-xs-12\">" + newIngredient.getIngredientName() + "</div>");
+                                        out.println("<div class = \"col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right\">" + newIngredient.getIngredientSize() + " " + newIngredient.getIngredientUnit() + "</div>");
                                     out.println("</div>");
                                 }
                                 
-                                if (recipeInstructions != null && !recipeInstructions.equals("")){ 
+                                if (newRecipe.getRecipeInstructions() != null && !newRecipe.getRecipeInstructions().equals("")){ 
                                     
                                     out.println("<div class = \"list-group-item col-lg-12 col-md-12 col-sm-12 col-xs-12\">");
-                                        out.println("<div class = \"col-lg-12 col-md-12 col-sm-12 col-xs-12\">Instructions: " + recipeInstructions + "</div>");
+                                        out.println("<div class = \"col-lg-12 col-md-12 col-sm-12 col-xs-12\">Instructions: " + newRecipe.getRecipeInstructions() + "</div>");
                                     out.println("</div>");
                                     
                                 }

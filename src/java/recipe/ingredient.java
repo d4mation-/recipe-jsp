@@ -15,16 +15,16 @@ import java.io.Serializable;
 public class ingredient implements Serializable{
     
     private String ingredientName;
-    private float ingredientSize;
+    private String ingredientSize;
     private String ingredientUnit;
     
     public ingredient() {
         ingredientName = "";
-        ingredientSize = 0;
+        ingredientSize = "";
         ingredientUnit = "";
     }
     
-    public ingredient(String ingredientName, float ingredientSize, String ingredientUnit) {
+    public ingredient(String ingredientName, String ingredientSize, String ingredientUnit) {
         this.ingredientName = ingredientName;
         this.ingredientSize = ingredientSize;
     }
@@ -37,11 +37,11 @@ public class ingredient implements Serializable{
         this.ingredientName = ingredientName;
     }
     
-    public float getIngredientSize() {
+    public String getIngredientSize() {
         return ingredientSize;
     }
     
-    public void setIngredientSize(float ingredientSize) {
+    public void setIngredientSize(String ingredientSize) {
         this.ingredientSize = ingredientSize;
     }
     
