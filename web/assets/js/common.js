@@ -32,6 +32,7 @@ $(document).ready( function() {
    
     var good = '';
     $(document).on('keyup', '.numbers-only', function(event) {
+        // Client side validation of Ingredient Number
         
         var input = $(this);
         
@@ -52,6 +53,7 @@ $(document).ready( function() {
  
     var ingredientTemplate = $('.ingredient-repeater').contents().clone(true);
     $('.ingredient-repeater').contents().remove();
+    // Create template
     
     $(document).on('change', '#number_of_ingredients', function(event) {
        repeatIngredients(ingredientTemplate, event.which); 
