@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -95,9 +96,28 @@ public class inputRecipe extends HttpServlet {
                             String ingredientSize;
                             String ingredientUnit;
                             String recipeInstructions = request.getParameter("recipe_instructions");
+                            String rememberMe;
+                            
+                            if (request.getParameter("remember_me") != null ){
+                                rememberMe = request.getParameter("remember_me");
+                            }
+                            else{
+                                rememberMe = "";
+                            }
                             
                             recipe newRecipe = new recipe(recipeName, recipeAuthor, recipeInstructions);
                             ingredient newIngredient;
+                            
+                            if ( rememberMe.equals("on") ){
+                                Cookie c = new Cookie("recipe_author", newRecipe.getRecipeAuthor() );
+                                c.setMaxAge(24*60*60);
+                                response.addCookie(c); 
+                            }
+                            else{
+                                Cookie eatCookie = new Cookie("recipe_author", "nom");
+                                eatCookie.setMaxAge(0);
+                                response.addCookie(eatCookie);
+                            }
 
                             out.println("<div class = \"list-group\">");
                             

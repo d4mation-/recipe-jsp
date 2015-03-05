@@ -19,8 +19,8 @@
                                 <input required class = "form-control" name = "recipe_name" />
                             </div>
                             <div class = "col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <label for = "recipe_author">Creator</label>
-                                <input required class = "form-control" name = "recipe_author" />
+                                <label for = "recipe_author">Creator</label>&nbsp;<input type = "checkbox" class = "remember-me" name = "remember_me" <c:if test="${not empty cookie.recipe_author.value}">checked</c:if> />&nbsp;Remember Me
+                                <input required class = "form-control" name = "recipe_author" value = "${cookie.recipe_author.value}" />
                             </div>
                         </div>
                         <br />
