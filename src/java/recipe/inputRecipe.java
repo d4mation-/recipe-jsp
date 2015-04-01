@@ -10,7 +10,6 @@ package recipe;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +21,14 @@ import javax.servlet.http.HttpServletResponse;
  * @author edefore
  */
 public class inputRecipe extends HttpServlet {
+    
+    String recipeName;
+    String recipeAuthor;
+    String ingredientName;
+    String ingredientSize;
+    String ingredientUnit;
+    String recipeInstructions;
+    String rememberMe;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,6 +41,7 @@ public class inputRecipe extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -92,13 +100,9 @@ public class inputRecipe extends HttpServlet {
                             int ingredientCount = Integer.parseInt( request.getParameter("ingredient_number") );
                             ingredientCount = ingredientCount - 1; // Everything is indexed at 0;
 
-                            String recipeName = request.getParameter("recipe_name");
-                            String recipeAuthor = request.getParameter("recipe_author");
-                            String ingredientName;
-                            String ingredientSize;
-                            String ingredientUnit;
-                            String recipeInstructions = request.getParameter("recipe_instructions");
-                            String rememberMe;
+                            recipeName = request.getParameter("recipe_name");
+                            recipeAuthor = request.getParameter("recipe_author");
+                            recipeInstructions = request.getParameter("recipe_instructions");
                             
                             if (request.getParameter("remember_me") != null ){
                                 rememberMe = request.getParameter("remember_me");
