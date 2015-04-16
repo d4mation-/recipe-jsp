@@ -29,6 +29,7 @@ public class ingredient implements Serializable{
     public ingredient(String ingredientName, String ingredientSize, String ingredientUnit) {
         this.ingredientName = ingredientName;
         this.ingredientSize = ingredientSize;
+        this.ingredientUnit = ingredientUnit;
     }
     
     public String getIngredientName() {
@@ -53,6 +54,15 @@ public class ingredient implements Serializable{
     
     public void setIngredientUnit(String ingredientUnit) {
         this.ingredientUnit = ingredientUnit;
+    }
+    
+    @Override
+    public String toString() {
+        
+        String ret = getIngredientName() + " " + getIngredientSize() + " " + getIngredientUnit();
+        
+        return ret;
+        
     }
     
 }

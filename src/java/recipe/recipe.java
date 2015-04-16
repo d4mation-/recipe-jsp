@@ -57,4 +57,13 @@ public class recipe implements Serializable{
         this.recipeInstructions = recipeInstructions;
     }
     
+    @Override
+    public String toString() {
+        
+        String ret = getRecipeName() + " " + getRecipeAuthor() + " " + getRecipeInstructions();
+        
+        return ret;
+        
+    }
+    
 }
